@@ -19,28 +19,4 @@
 #
 
 class packagecloud() {
-    case $::operatingsystem {
-      'debian',
-      'ubuntu': {
-        package { 'apt-transport-https':
-          ensure => latest,
-        }
-      }
-      'RedHat',
-      'redhat',
-      'CentOS',
-      'centos',
-      'Amazon',
-      'Fedora',
-      'Scientific',
-      'OracleLinux',
-      'OEL': {
-        package { 'pygpgme':
-          ensure => latest,
-        }
-      }
-      default: {
-        fail("Sorry, ${::operatingsystem} isn't supported. Email support@packagecloud.io for help.")
-      }
-    }
 }
